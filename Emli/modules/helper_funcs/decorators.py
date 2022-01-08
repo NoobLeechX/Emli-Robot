@@ -13,7 +13,7 @@ from Emli import dispatcher as d, LOGGER
 from typing import Optional, Union, List
 
 
-class EmikoHandler:
+class EmliHandler:
     def __init__(self, d):
         self._dispatcher = d
 
