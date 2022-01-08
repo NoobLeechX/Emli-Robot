@@ -18,7 +18,7 @@ from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
     
-from EmikoRobot import (
+from Emli import (
     DEV_USERS,
     OWNER_ID,
     DRAGONS,
@@ -39,7 +39,7 @@ from Emli.modules.sql.global_bans_sql import is_user_gbanned
 from Emli.modules.sql.afk_sql import is_afk, set_afk
 from Emli.modules.sql.users_sql import get_user_num_chats
 from Emli.modules.helper_funcs.chat_status import sudo_plus
-from EmikoRobot.modules.helper_funcs.extraction import extract_user
+from Emli.modules.helper_funcs.extraction import extract_user
 from Emli import telethn
 
 def no_by_per(totalhp, percentage):

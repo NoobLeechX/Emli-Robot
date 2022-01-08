@@ -1,4 +1,4 @@
-from EmikoRobot import telethn as tbot
+from Emli import telethn as tbot
 import os
 import re
 import bs4
