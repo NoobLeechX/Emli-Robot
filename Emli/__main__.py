@@ -809,7 +809,7 @@ def main():
     )
 
     about_callback_handler = CallbackQueryHandler(
-        emiko_about_callback, pattern=r"emiko_", run_async=True
+        emli_about_callback, pattern=r"emli_", run_async=True
     )
 
     source_callback_handler = CallbackQueryHandler(
