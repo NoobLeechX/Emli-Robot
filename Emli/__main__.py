@@ -82,27 +82,36 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Hello {} !*
-✪ I'm an anime-theme management bot [✨](https://te.legra.ph/file/074ef8d210745e3380baf.jpg)
 ────────────────────────
-× *Bot Uptime:* `{}`
-× `{}` *users, across* `{}` *chats*
+✪ I'm Emli an anime theme bot designed to help manage your telegram group with a lot features.
+✪ Maintained by @shado_hackers ✨
+✪ *Bot Uptime:* `{}`
+✪ `{}` *users, across* `{}` *chats*
 ────────────────────────
-✪ Hit /help to see available commands.
+Hit the /help to see available command.
 """
 
 buttons = [
     [
-        InlineKeyboardButton(text="About Emli Robot", callback_data="emli"),
+        InlineKeyboardButton(text="Help & Command", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="Help", callback_data="help_back"),
+        InlineKeyboardButton(text="About Emli", callback_data="emli_"),
         InlineKeyboardButton(
-            text="support!", url="t.me/OMG_info"
+            text="Follow meh!​​", url="https://mobile.twitter.com/Lusifer_noob"
         ),
     ],
     [
         InlineKeyboardButton(
-            text="➗ Add Emli To Your Group ➗", url="t.me/EmiexRobot?startgroup=new"),
+            text="𝐒𝐨𝐮𝐫𝐜𝐞 𝐂𝐨𝐝𝐞", url="tg://need_update_for_some_feature"
+        ),
+        InlineKeyboardButton(
+            text="Support Chat", url=f"https://t.me/{SUPPORT_CHAT}"
+        ),
+    ],
+    [
+        InlineKeyboardButton(
+            text="➗ Add Emli To Your Group ➗", url="t.me/Emili_CTbot?startgroup=new"),
     ],
 ]
 
@@ -110,7 +119,7 @@ buttons = [
 HELP_STRINGS = """
 Click on the button bellow to get description about specifics command."""
 
-EMI_IMG = "https://te.legra.ph/file/074ef8d210745e3380baf.jpg"
+EMI_IMG = "https://telegra.ph/file/e8baa0a32d528b548aa45.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting @shado_hackers \
@@ -225,7 +234,7 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=False,
+                disable_web_page_preview=True,
             )
     else:
         update.effective_message.reply_text(
@@ -382,10 +391,10 @@ def emli_about_callback(update, context):
                     InlineKeyboardButton(text="Credits", callback_data="emli_credit"),
                  ],
                  [
-                    InlineKeyboardButton(text="Follow", url="https://mobile.twitter.com/Lusifer_noob"),
+                    InlineKeyboardButton(text="about dev", callback_data="source_"),
                  ],
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="emli_back"),
+                    InlineKeyboardButton(text="Go Back", callback_data="emiko_back"),
                  ]
                 ]
             ),
@@ -402,7 +411,7 @@ def emli_about_callback(update, context):
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=False,
+                disable_web_page_preview=True,
         )
 
     elif query.data == "emli_admin":
@@ -418,7 +427,7 @@ def emli_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="emli")]]
+                [[InlineKeyboardButton(text="Go Back", callback_data="emli_")]]
             ),
         )
 
@@ -475,17 +484,11 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text="๏›› This advance command for Musicplayer."
-            "\n\n๏ Command for admins only."
-            "\n • `/reload` - For refreshing the adminlist."
-            "\n • `/pause` - To pause the playback."
-            "\n • `/resume` - To resuming the playback You've paused."
-            "\n • `/skip` - To skipping the player."
-            "\n • `/end` - For end the playback."
-            "\n • `/musicplayer <on/off>` - Toggle for turn ON or turn OFF the musicplayer."
-            "\n\n๏ Command for all members."
-            "\n • `/play` <query /reply audio> - Playing music via YouTube."
-            "\n • `/playlist` - To playing a playlist of groups or your personal playlist",
+            text="๏›› INFO of DEVELOPER."
+            "\n\n๏ name : [𝐋𝐔𝐒𝐈𝐅𝐄𝐑](https://t.me/shado_hackers)."
+            "\n • [support] - @OMG_info."
+            "\n • [leech] - @nexleech."
+            "\n • hosted - heroku.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -507,7 +510,7 @@ def Source_about_callback(update, context):
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=False,
+                disable_web_page_preview=True,
         )
 
 def get_help(update: Update, context: CallbackContext):
@@ -540,7 +543,7 @@ def get_help(update: Update, context: CallbackContext):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Help",
+                            text="Help & Command ❓",
                             url="t.me/{}?start=help".format(context.bot.username),
                         )
                     ]
