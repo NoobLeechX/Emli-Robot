@@ -46,7 +46,8 @@ pygithub
 TgCrypto
 Pyrogram
 PyDictionary
-lyrics_extractor
+tswift
+lyricsgenius
 asyncio
 cloudscraper
 dateparser==1.1.0
@@ -58,7 +59,6 @@ emoji-country-flag
 countryinfo
 html2text
 bs4
-redis
 pySmartDL
 bing_image_downloader
 search_engine_parser
