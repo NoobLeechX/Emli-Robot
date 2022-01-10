@@ -39,4 +39,7 @@ and Automatically openned at 6am(IST) To Prevent Night Spams.
 ❂ /webss *:*  capture web screen shot like  /webss google.com
 ❂ /proxy  *:* Get socks5 proxy which you can
     +  use with telegram or other things
+❂ /q *:* create quote stickers
+❂ /tgm *:* create telegraph on image
+❂ /tgt *:* create telegraph on text 
 """
