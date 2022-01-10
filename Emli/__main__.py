@@ -82,36 +82,27 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Hello {} !*
+✪ I'm Emli anime-theme management bot [✨](https://te.legra.ph/file/074ef8d210745e3380baf.jpg)
 ────────────────────────
-✪ I'm Emli an anime theme bot designed to help manage your telegram group with a lot features.
-✪ Maintained by @shado_hackers ✨
-✪ *Bot Uptime:* `{}`
-✪ `{}` *users, across* `{}` *chats*
+× *Bot Uptime:* `{}`
+× `{}` *users, across* `{}` *chats*
 ────────────────────────
-Hit the /help to see available command.
+✪ Hit the /help to see available commands.
 """
 
 buttons = [
     [
-        InlineKeyboardButton(text="Help & Command", callback_data="help_back"),
+        InlineKeyboardButton(text="About Emli Robot", callback_data="emli_"),
     ],
     [
-        InlineKeyboardButton(text="About Emli", callback_data="emli_"),
+        InlineKeyboardButton(text="Help", callback_data="help_back"),
         InlineKeyboardButton(
-            text="Follow meh!​​", url="https://mobile.twitter.com/Lusifer_noob"
+            text="support!​​", url="t.me/OMG_info"
         ),
     ],
     [
         InlineKeyboardButton(
-            text="𝐒𝐨𝐮𝐫𝐜𝐞 𝐂𝐨𝐝𝐞", url="tg://need_update_for_some_feature"
-        ),
-        InlineKeyboardButton(
-            text="Support Chat", url=f"https://t.me/{SUPPORT_CHAT}"
-        ),
-    ],
-    [
-        InlineKeyboardButton(
-            text="➗ Add Emli To Your Group ➗", url="t.me/Emili_CTbot?startgroup=new"),
+            text="➗ Add Emli To Your Group ➗", url="t.me/EmiexRobot?startgroup=new"),
     ],
 ]
 
@@ -119,7 +110,7 @@ buttons = [
 HELP_STRINGS = """
 Click on the button bellow to get description about specifics command."""
 
-EMI_IMG = "https://telegra.ph/file/e8baa0a32d528b548aa45.jpg"
+EMI_IMG = "https://te.legra.ph/file/074ef8d210745e3380baf.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting @shado_hackers \
@@ -234,11 +225,11 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=True,
+                disable_web_page_preview=False,
             )
     else:
         update.effective_message.reply_text(
-            f"<b>Hi I'm Emli robot!</b>\n<b>Started working since:</b> <code>{uptime}</code>",
+            f"<b>Hi👋 I'm Emli robot!</b>\n<b>Started working since:</b> <code>{uptime}</code>",
             parse_mode=ParseMode.HTML
        )
 
@@ -379,7 +370,7 @@ def emli_about_callback(update, context):
             "\n\n_Emli's licensed under the GNU General Public License v3.0_"
             "\n\n Click on button bellow to get basic help for Emli.",
             parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
+            disable_web_page_preview=False,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
@@ -391,10 +382,10 @@ def emli_about_callback(update, context):
                     InlineKeyboardButton(text="Credits", callback_data="emli_credit"),
                  ],
                  [
-                    InlineKeyboardButton(text="about dev", callback_data="source_"),
+                    InlineKeyboardButton(text="Follow", url="https://mobile.twitter.com/Lusifer_noob"),
                  ],
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="emiko_back"),
+                    InlineKeyboardButton(text="Go Back", callback_data="emli_back"),
                  ]
                 ]
             ),
@@ -411,7 +402,7 @@ def emli_about_callback(update, context):
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=True,
+                disable_web_page_preview=False,
         )
 
     elif query.data == "emli_admin":
@@ -451,7 +442,7 @@ def emli_about_callback(update, context):
                 [
                  [
                     InlineKeyboardButton(text="Support", url="t.me/OMG_info"),
-                    InlineKeyboardButton(text="Updates", url="https://t.me/nexleech"),
+                    InlineKeyboardButton(text="Updates", url="https://t.me/OMG_info"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emli_"),
@@ -484,13 +475,19 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text="๏›› INFO of DEVELOPER."
-            "\n\n๏ name : [𝐋𝐔𝐒𝐈𝐅𝐄𝐑](https://t.me/shado_hackers)."
-            "\n • [support] - @OMG_info."
-            "\n • [leech] - @nexleech."
-            "\n • hosted - heroku.",
+            text="๏›› This advance command for Musicplayer."
+            "\n\n๏ Command for admins only."
+            "\n • `/reload` - For refreshing the adminlist."
+            "\n • `/pause` - To pause the playback."
+            "\n • `/resume` - To resuming the playback You've paused."
+            "\n • `/skip` - To skipping the player."
+            "\n • `/end` - For end the playback."
+            "\n • `/musicplayer <on/off>` - Toggle for turn ON or turn OFF the musicplayer."
+            "\n\n๏ Command for all members."
+            "\n • `/play` <query /reply audio> - Playing music via YouTube."
+            "\n • `/playlist` - To playing a playlist of groups or your personal playlist",
             parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
+            disable_web_page_preview=False,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
@@ -510,7 +507,7 @@ def Source_about_callback(update, context):
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=True,
+                disable_web_page_preview=False,
         )
 
 def get_help(update: Update, context: CallbackContext):
@@ -543,7 +540,7 @@ def get_help(update: Update, context: CallbackContext):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Help & Command ❓",
+                            text="Help",
                             url="t.me/{}?start=help".format(context.bot.username),
                         )
                     ]
@@ -736,7 +733,7 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 828959161:
+        if OWNER_ID != 1606221784:
             update.effective_message.reply_text(
                 "I'm free for everyone ❤️ If you wanna make me smile, just join"
                 "[My Channel]({})".format(DONATION_LINK),
