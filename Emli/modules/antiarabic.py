@@ -33,7 +33,7 @@ from telegram.ext.dispatcher import run_async
 ANTIARABIC_GROUPS = 12
 
 
-run_async
+
 @user_admin
 def antiarabic_setting(bot: Bot, update: Update, args: List[str]):
     chat = update.effective_chat
@@ -55,7 +55,6 @@ def antiarabic_setting(bot: Bot, update: Update, args: List[str]):
 
 
 @user_not_admin
-run_async
 def antiarabic(bot: Bot, update: Update):
     chat = update.effective_chat
     msg = update.effective_message
