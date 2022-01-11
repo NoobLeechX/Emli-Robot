@@ -13,6 +13,12 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+antiarabic_enabled: "Turned on AntiArabic! Messages sent by any non-admin which contains arabic text will be deleted."
+antiarabic_disabled: "Turned off AntiArabic! Messages containing arabic text won't be deleted."
+antiarabic_setting: "This chat's current setting is: `{}`"
+
+
+
 from typing import List
 
 from Emli import dispatcher
