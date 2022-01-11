@@ -382,7 +382,7 @@ def emli_about_callback(update, context):
                     InlineKeyboardButton(text="Credits", callback_data="emli_credit"),
                  ],
                  [
-                    InlineKeyboardButton(text="Follow", url="https://mobile.twitter.com/Lusifer_noob"),
+                    InlineKeyboardButton(text="About dev", callback_data="source_"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emli_back"),
@@ -475,18 +475,16 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text="๏›› This advance command for Musicplayer."
-            "\n\n๏ Command for admins only."
-            "\n • `/reload` - For refreshing the adminlist."
-            "\n • `/pause` - To pause the playback."
-            "\n • `/resume` - To resuming the playback You've paused."
-            "\n • `/skip` - To skipping the player."
-            "\n • `/end` - For end the playback."
-            "\n • `/musicplayer <on/off>` - Toggle for turn ON or turn OFF the musicplayer."
-            "\n\n๏ Command for all members."
-            "\n • `/play` <query /reply audio> - Playing music via YouTube."
-            "\n • `/playlist` - To playing a playlist of groups or your personal playlist",
-            parse_mode=ParseMode.MARKDOWN,
+            text="๏›› About dev."
+            "\n\n๏ 𝙽𝙰𝙼𝙴 : [𝐋𝐔𝐒𝐈𝐅𝐄𝐑](https://t.me/shado_hackers)."
+            "\n • 𝚂𝚞𝚙𝚙𝚘𝚛𝚝 - @OMG_info."
+            "\n • 𝙻𝚎𝚎𝚌𝚑 -@nexleech."
+            "\n • `Hosted` -[Heroku] (https://heroku.com)."
+            "\n • `Follow` - "[𝐅𝐨𝐥𝐥𝐨𝐰](https://mobile.twitter.com/Lusifer_noob)."
+            "\n • `source` - [click here](tg://need_update_for_some_feature)."
+            "\n • 𝙼𝚈 𝙽𝙰𝙼𝙴  - [𝙴𝙼𝙻𝙸](https://t.me/Emili_CTbot)."
+            "\n\n๏ [𝙾𝚝𝚑𝚎𝚛 𝚋𝚘𝚝](https://t.me/OMG_info/3990).",
+               parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=False,
             reply_markup=InlineKeyboardMarkup(
                 [
