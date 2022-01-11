@@ -93,9 +93,3 @@ def __migrate__(old_chat_id, new_chat_id):
 
 __mod_name__ = "antiarabic"
 
-SETTING_HANDLER = DisableAbleCommandHandler("antiarabic", antiarabic_setting,
-                                 pass_args=True)
-
-
-dispatcher.add_handler(SETTING_HANDLER)
-dispatcher.add_handler(ANTI_ARABIC, group=ANTIARABIC_GROUPS)
