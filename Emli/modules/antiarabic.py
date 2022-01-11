@@ -95,8 +95,7 @@ __mod_name__ = "antiarabic"
 
 SETTING_HANDLER = DisableAbleCommandHandler("antiarabic", antiarabic_setting,
                                  pass_args=True)
-ANTI_ARABIC = MessageHandler(
-    (Filters.text | Filters.command | Filters.sticker | Filters.photo) & Filters.group, antiarabic)
+
 
 dispatcher.add_handler(SETTING_HANDLER)
 dispatcher.add_handler(ANTI_ARABIC, group=ANTIARABIC_GROUPS)
