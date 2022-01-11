@@ -46,8 +46,6 @@ pygithub
 TgCrypto
 Pyrogram
 PyDictionary
-tswift
-lyricsgenius
 asyncio
 cloudscraper
 dateparser==1.1.0
