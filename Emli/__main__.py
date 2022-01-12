@@ -475,14 +475,15 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text="๏›› About dev."
-            "\n\n๏ 𝙽𝙰𝙼𝙴 : [𝐋𝐔𝐒𝐈𝐅𝐄𝐑](https://t.me/shado_hackers)."
-            "\n • 𝚂𝚞𝚙𝚙𝚘𝚛𝚝 - @OMG_info."
-            "\n • 𝙻𝚎𝚎𝚌𝚑 - @nexleech."
-            "\n • Hosted : [Heroku]."
-            "\n • `source` - [click here](tg://need_update_for_some_feature)."
-            "\n • 𝙼𝚈 𝙽𝙰𝙼𝙴  - [𝙴𝙼𝙻𝙸](https://t.me/Emili_CTbot)."
-            "\n\n๏ [𝙾𝚝𝚑𝚎𝚛 𝚋𝚘𝚝](https://t.me/OMG_info/3990).",
+            text="""๏›› About dev."
+             ✯ 𝙼𝚈 𝙽𝙰𝙼𝙴: {}
+✯ 𝙲𝚁𝙴𝙰𝚃𝙾𝚁: <a href=https://t.me/shado_hackers>LUSIFER</a>
+✯ 𝙻𝙸𝙱𝚁𝙰𝚁𝚈: 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼
+✯ 𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴: 𝙿𝚈𝚃𝙷𝙾𝙽 𝟹
+✯ 𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴: 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
+✯ 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
+✯ 𝙱𝚄𝙸𝙻𝙳 𝚂𝚃𝙰𝚃𝚄𝚂: v1.0.1 [ 𝙱𝙴𝚃𝙰 ]
+            "\n\n๏ [𝙾𝚝𝚑𝚎𝚛 𝚋𝚘𝚝](https://t.me/OMG_info/3990).""",
                parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=False,
             reply_markup=InlineKeyboardMarkup(
