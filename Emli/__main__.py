@@ -480,7 +480,7 @@ def Source_about_callback(update, context):
             "\n • 𝚂𝚞𝚙𝚙𝚘𝚛𝚝 - @OMG_info."
             "\n • 𝙻𝚎𝚎𝚌𝚑 - @nexleech."
             "\n • Hosted : [Heroku]."
-            "\n • Follow : [𝐅𝐨𝐥𝐥𝐨𝐰](https://mobile.twitter.com/Lusifer_noob)"
+            "\n • [Follow](https://mobile.twitter.com/Lusifer_noob)"
             "\n • `source` - [click here](tg://need_update_for_some_feature)."
             "\n • 𝙼𝚈 𝙽𝙰𝙼𝙴  - [𝙴𝙼𝙻𝙸](https://t.me/Emili_CTbot)."
             "\n\n๏ [𝙾𝚝𝚑𝚎𝚛 𝚋𝚘𝚝](https://t.me/OMG_info/3990).",
