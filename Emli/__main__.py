@@ -475,20 +475,32 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=text="๏›› About dev."
-            "\n\n๏ 𝙽𝙰𝙼𝙴 : @shado_hackers)."
-            "\n • 𝚂𝚞𝚙𝚙𝚘𝚛𝚝 - @OMG_info."
-            "\n • 𝙻𝚎𝚎𝚌𝚑 - @nexleech."
-            "\n • Hosted : [Heroku]."
-            "\n • `source` - [click here](tg://need_update_for_some_feature)."
-            "\n • 𝙼𝚈 𝙽𝙰𝙼𝙴  - @Emili_CTbot."
-            "\n\n๏ [𝙾𝚝𝚑𝚎𝚛 𝚋𝚘𝚝](https://t.me/OMG_info/3990).",
-               parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=False,
+            text="๏›› About dev."
+            parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="emli_")
+                    InlineKeyboardButton(text="LUSIFER", url="https://t.me/shado_hackers"),
+                    InlineKeyboardButton(text="𝚂𝚞𝚙𝚙𝚘𝚛𝚝", url="https://t.me/OMG_info"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="𝙻𝚎𝚎𝚌𝚑", url="https://t.me/nexleech"),
+                    InlineKeyboardButton(text="𝙾𝚝𝚑𝚎𝚛 𝚋𝚘𝚝", url="https://t.me/OMG_info/3990"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="𝙱𝚄𝙸𝙻𝙳 𝚂𝚃𝙰𝚃𝚄𝚂 V1", url="https://t.me/Emili_CTbot"),
+                    InlineKeyboardButton(text="Source", url="tg://need_update_for_some_feature"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁", url="https://heroku.com/"),
+                    InlineKeyboardButton(text="𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴", url="https://cloud.mongodb.com/"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Follow meh", url="https://mobile.twitter.com/Lusifernoob"),
+                    InlineKeyboardButton(text="𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴", url="https://www.python.org/"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Go Back", callback_data="emli_"),
                  ]
                 ]
             ),
