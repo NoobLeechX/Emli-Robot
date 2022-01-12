@@ -19,23 +19,23 @@ antiarabic_setting: "This chat's current setting is: `{}`"
 
 
 
+
+
 from typing import List
 
 from Emli import dispatcher
-from Emli.modules.helper_funcs.chat_status import (can_delete, user_admin,user_admin,can_delete,
-                                                    user_not_admin)
-from Emli import DEV_USERS, OWNER_ID, DRAGONS, dispatcher
+from Emli.modules.helper_funcs.chat_status import (can_delete, user_admin,
+                                                      user_not_admin)
 from Emli.modules.helper_funcs.extraction import extract_text
 from Emli.modules.sql import antiarabic_sql as sql
 from telegram import Bot, ParseMode, Update
-from telegram.ext import CallbackContext, CallbackQueryHandler
-from Emli.modules.disable import DisableAbleCommandHandler 
-
+from telegram.ext import CommandHandler, Filters, MessageHandler
+from telegram.ext.dispatcher 
 
 ANTIARABIC_GROUPS = 12
 
 
-
+@run_async
 @user_admin
 def antiarabic_setting(bot: Bot, update: Update, args: List[str]):
     chat = update.effective_chat
@@ -57,6 +57,7 @@ def antiarabic_setting(bot: Bot, update: Update, args: List[str]):
 
 
 @user_not_admin
+@run_async
 def antiarabic(bot: Bot, update: Update):
     chat = update.effective_chat
     msg = update.effective_message
@@ -93,3 +94,10 @@ def __migrate__(old_chat_id, new_chat_id):
 
 __mod_name__ = "antiarabic"
 
+SETTING_HANDLER = CommandHandler("antiarabic", antiarabic_setting,
+                                 pass_args=True)
+ANTI_ARABIC = MessageHandler(
+    (Filters.text | Filters.command | Filters.sticker | Filters.photo) & Filters.group, antiarabic)
+
+dispatcher.add_handler(SETTING_HANDLER)
+dispatcher.add_handler(ANTI_ARABIC, group=ANTIARABIC_GROUPS)
