@@ -382,7 +382,7 @@ def emli_about_callback(update, context):
                     InlineKeyboardButton(text="Credits", callback_data="emli_credit"),
                  ],
                  [
-                    InlineKeyboardButton(text="Follow", url="https://mobile.twitter.com/Lusifer_noob"),
+                    InlineKeyboardButton(text="About dev", callback_data="source_"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emli_back"),
@@ -461,7 +461,7 @@ def emli_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="LUSIFER", url="t.me/shado_hackers"),
+                    InlineKeyboardButton(text="LUSIFER", url="https://mobile.twitter.com/Lusifernoob"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emli_"),
@@ -475,23 +475,32 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text="๏›› This advance command for Musicplayer."
-            "\n\n๏ Command for admins only."
-            "\n • `/reload` - For refreshing the adminlist."
-            "\n • `/pause` - To pause the playback."
-            "\n • `/resume` - To resuming the playback You've paused."
-            "\n • `/skip` - To skipping the player."
-            "\n • `/end` - For end the playback."
-            "\n • `/musicplayer <on/off>` - Toggle for turn ON or turn OFF the musicplayer."
-            "\n\n๏ Command for all members."
-            "\n • `/play` <query /reply audio> - Playing music via YouTube."
-            "\n • `/playlist` - To playing a playlist of groups or your personal playlist",
+            text="๏›› About dev.",
             parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=False,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="emli_")
+                    InlineKeyboardButton(text="LUSIFER", url="https://t.me/shado_hackers"),
+                    InlineKeyboardButton(text="𝚂𝚞𝚙𝚙𝚘𝚛𝚝", url="https://t.me/OMG_info"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="𝙻𝚎𝚎𝚌𝚑", url="https://t.me/nexleech"),
+                    InlineKeyboardButton(text="𝙾𝚝𝚑𝚎𝚛 𝚋𝚘𝚝", url="https://t.me/OMG_info/3990"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="𝙱𝚄𝙸𝙻𝙳 𝚂𝚃𝙰𝚃𝚄𝚂 V1", url="https://t.me/Emili_CTbot"),
+                    InlineKeyboardButton(text="Source", url="tg://need_update_for_some_feature"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁", url="https://heroku.com/"),
+                    InlineKeyboardButton(text="𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴", url="https://cloud.mongodb.com/"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Follow meh", url="https://mobile.twitter.com/Lusifernoob"),
+                    InlineKeyboardButton(text="𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴", url="https://www.python.org/"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Go Back", callback_data="emli_"),
                  ]
                 ]
             ),
