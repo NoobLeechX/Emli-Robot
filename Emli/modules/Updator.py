@@ -8,7 +8,7 @@ from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
 from Emli import OWNER_ID
 from Emli.confing import get_str_key
-from Emli.services.events import register
+from Emli.events import register
 from Emli.services.telethon import tbot as update
 
 HEROKU_APP_NAME = get_str_key("HEROKU_APP_NAME", None)
