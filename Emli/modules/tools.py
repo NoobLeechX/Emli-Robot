@@ -42,4 +42,8 @@ and Automatically openned at 6am(IST) To Prevent Night Spams.
 ❂ /q *:* create quote stickers
 ❂ /tgm *:* create telegraph on image
 ❂ /tgt *:* create telegraph on text 
+❂ /rmbg *:* remove background
+❂ /nasa *:* get info about space
+❂ /quote *:* get rendom quote
+❂ /animequotes *:* get rendom animequotes
 """
