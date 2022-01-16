@@ -46,4 +46,5 @@ and Automatically openned at 6am(IST) To Prevent Night Spams.
 ❂ /nasa *:* get info about space
 ❂ /quote *:* get rendom quote
 ❂ /animequotes *:* get rendom animequotes
+❂ /zombies *:* clean zombies in group
 """

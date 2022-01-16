@@ -190,6 +190,7 @@ __help__ = """
 ❂ /ud <word>*:* Type the word or expression you want to search use
 ❂ /reverse*:* Does a reverse image search of the media which it was replied to.
 ❂ /wiki <query>*:* wikipedia your query
+❂ /pdf *:*  reply to img to create pdf
 ❂ /spwinfo get ◢ Intellivoid• SpamProtection Info
 ❂ /gps <location>*:* find a location via Google maps
 ❂ /crypto [currency]

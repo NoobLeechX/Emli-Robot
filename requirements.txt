@@ -80,4 +80,4 @@ pendulum
 fuzzysearch
 img2pdf
 multicolorcaptcha
-geopy
+gitpython
