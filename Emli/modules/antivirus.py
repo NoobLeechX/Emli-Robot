@@ -1,4 +1,5 @@
-#Copyright (C) 2020 - 2021 Emli
+# Copyright (C) 2021 Emli
+
 
 # This file is part of Emli (Telegram Bot)
 
@@ -87,8 +88,8 @@ async def virusscan(event):
         await event.client.download_file(c, virus)
         gg = await event.reply("Scanning the file ...")
         fsize = c.file.size
-        if not fsize <= 10485760:  # MAX = 10MB
-            await gg.edit("File size exceeds 10MB")
+        if not fsize <= 3145700:  # MAX = 3MB
+            await gg.edit("File size exceeds 3MB")
             return
         api_response = api_instance.scan_file_advanced(
             c.file.name,
@@ -111,5 +112,5 @@ async def virusscan(event):
 
 _mod_name_ = "Virus Scan"
 _help_ = """
- - /scanit: Scan a file for virus (MAX SIZE = 10MB)
-"""
+ - /scanit: Scan a file for virus (MAX SIZE = 3MB)
+ """
