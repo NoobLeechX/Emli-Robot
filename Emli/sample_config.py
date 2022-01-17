@@ -65,6 +65,7 @@ class Config(object):
         "awoo"  # For wallpapers, get one from https://wall.alphacoders.com/api.php
     )
     AI_API_KEY = "awoo"  # For chatbot, get one from https://coffeehouse.intellivoid.net/dashboard
+    VIRUS_API_KEY = "awoo" # For scan file , get one from  https://www.virustotal.com/gui/join-us
     BL_CHATS = []  # List of groups that you want blacklisted.
     SPAMMERS = None
 
