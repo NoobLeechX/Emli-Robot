@@ -81,5 +81,5 @@ fuzzysearch
 img2pdf
 multicolorcaptcha
 gitpython
-cloudmersive_virus_api_client==3.0.1
-chromedriver==2.24.1
+cloudmersive_virus_api_client
+chromedriver
