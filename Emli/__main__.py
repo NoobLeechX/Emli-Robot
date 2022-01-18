@@ -442,7 +442,7 @@ def emli_about_callback(update, context):
                 [
                  [
                     InlineKeyboardButton(text="Support", url="t.me/OMG_info"),
-                    InlineKeyboardButton(text="Updates", url="https://t.me/OMG_info"),
+                    InlineKeyboardButton(text="Updates", url="https://t.me/nexleech"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emli_"),
@@ -461,7 +461,7 @@ def emli_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="LUSIFER", url="https://mobile.twitter.com/Lusifernoob"),
+                    InlineKeyboardButton(text="LUSIFER", url="https://mobile.twitter.com/Lusifer_noob"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emli_"),
@@ -496,7 +496,7 @@ def Source_about_callback(update, context):
                     InlineKeyboardButton(text="𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴", url="https://cloud.mongodb.com/"),
                  ],
                  [
-                    InlineKeyboardButton(text="Follow meh", url="https://mobile.twitter.com/Lusifernoob"),
+                    InlineKeyboardButton(text="Follow meh", url="https://mobile.twitter.com/Lusifer_noob"),
                     InlineKeyboardButton(text="𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴", url="https://www.python.org/"),
                  ],
                  [

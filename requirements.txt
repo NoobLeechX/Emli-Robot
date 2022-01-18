@@ -6,7 +6,7 @@ gtts
 beautifulsoup4
 requests==2.26.0
 telegram==0.0.1
-python-telegram-bot==13.9.0
+python-telegram-bot==13.10
 sqlalchemy==1.3.23
 psycopg2-binary
 feedparser
@@ -81,3 +81,5 @@ fuzzysearch
 img2pdf
 multicolorcaptcha
 gitpython
+cloudmersive_virus_api_client
+chromedriver
