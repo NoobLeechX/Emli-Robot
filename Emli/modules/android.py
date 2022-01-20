@@ -422,6 +422,7 @@ Get the latest Magsik releases or TWRP for your device!
 × /twrp `<codename>`:  Gets latest twrp for the android device using the codename.
 × /orangefox `<codename>`:  Gets latest orangefox recovery for the android device using the codename.
 × /los `<codename>`: Gets Latest lineage os build.
+× /gsi : get's GSI build .
 """
 
 __mod_name__ = "Android"
