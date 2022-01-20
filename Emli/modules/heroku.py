@@ -188,7 +188,7 @@ async def _(dyno):
         dyno.chat_id,
         "logs.txt",
         reply_to=dyno.id,
-        caption="Emiko logs.",
+        caption="Emli logs.",
     )
 
     await asyncio.sleep(5)
