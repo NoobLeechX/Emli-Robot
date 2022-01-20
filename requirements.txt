@@ -83,3 +83,5 @@ multicolorcaptcha
 gitpython
 cloudmersive_virus_api_client
 chromedriver
+hurry.filesize
+ujson==5.1.0
