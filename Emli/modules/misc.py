@@ -191,6 +191,7 @@ __help__ = """
 ❂ /reverse*:* Does a reverse image search of the media which it was replied to.
 ❂ /wiki <query>*:* wikipedia your query
 ❂ /pdf *:*  reply to img to create pdf
+❂ /cs *:* gets cricket score global
 ❂ /spwinfo get ◢ Intellivoid• SpamProtection Info
 ❂ /gps <location>*:* find a location via Google maps
 ❂ /crypto [currency]
