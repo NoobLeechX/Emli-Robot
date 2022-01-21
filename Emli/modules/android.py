@@ -323,7 +323,7 @@ def los(update: Update, context: CallbackContext) -> str:
 
 
 @typing_action
-def havoc(bot: Bot, update: Update):
+def havoc(update: Update, context: CallbackContext) -> str:
     message = update.effective_message
     device = message.text[len('/havoc '):]
     fetch = get(f'https://raw.githubusercontent.com/Havoc-Devices/android_vendor_OTA/pie/{device}.json')
@@ -357,7 +357,7 @@ def havoc(bot: Bot, update: Update):
  
     
 @typing_action
-def pixys(bot: Bot, update: Update):
+def pixys(update: Update, context: CallbackContext) -> str:
     message = update.effective_message
     device = message.text[len('/pixys '):]
 
@@ -394,7 +394,7 @@ def pixys(bot: Bot, update: Update):
 
 
 @typing_action
-def pearl(bot: Bot, update: Update):
+def pearl(update: Update, context: CallbackContext) -> str:
     message = update.effective_message
     device = message.text[len('/pearl '):]
 
@@ -446,7 +446,7 @@ def pearl(bot: Bot, update: Update):
 
 
 @typing_action
-def posp(bot: Bot, update: Update):
+def posp(update: Update, context: CallbackContext) -> str:
     message = update.effective_message
     device = message.text[len('/posp '):]
 
