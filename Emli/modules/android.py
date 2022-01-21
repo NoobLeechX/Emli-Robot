@@ -30,7 +30,8 @@ from requests import get
 from telegram import InlineKeyboardButton
 from telegram import InlineKeyboardMarkup
 from telegram import ParseMode
-from telegram import Update
+from telegram import Update 
+from telegram import Bot ,Message
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext
 from ujson import loads
@@ -323,7 +324,8 @@ def los(update: Update, context: CallbackContext) -> str:
 
 
 @typing_action
-def havoc(update: Update, context: CallbackContext) -> str:
+def havoc(bot: Bot, update: Update): 
+
     message = update.effective_message
     device = message.text[len('/havoc '):]
     fetch = get(f'https://raw.githubusercontent.com/Havoc-Devices/android_vendor_OTA/pie/{device}.json')
@@ -357,7 +359,7 @@ def havoc(update: Update, context: CallbackContext) -> str:
  
     
 @typing_action
-def pixys(update: Update, context: CallbackContext) -> str:
+def pixys(bot: Bot, update: Update):
     message = update.effective_message
     device = message.text[len('/pixys '):]
 
@@ -394,7 +396,7 @@ def pixys(update: Update, context: CallbackContext) -> str:
 
 
 @typing_action
-def pearl(update: Update, context: CallbackContext) -> str:
+def pearl(bot: Bot, update: Update):
     message = update.effective_message
     device = message.text[len('/pearl '):]
 
@@ -446,7 +448,7 @@ def pearl(update: Update, context: CallbackContext) -> str:
 
 
 @typing_action
-def posp(update: Update, context: CallbackContext) -> str:
+def posp(bot: Bot, update: Update):
     message = update.effective_message
     device = message.text[len('/posp '):]
 
