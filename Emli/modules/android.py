@@ -591,6 +591,9 @@ Get the latest Magsik releases or TWRP for your device!
 __mod_name__ = "Android"
 
 MAGISK_HANDLER = DisableAbleCommandHandler("magisk", magisk, run_async=True)
+HAVOC_HANDLER = DisableAbleCommandHandler("havoc", havoc, run_async=True)
+PIXYS_HANDLER = DisableAbleCommandHandler("pixys", pixys, run_async=True)
+POSP_HANDLER = DisableAbleCommandHandler("posp", posp, run_async=True)
 TWRP_HANDLER = DisableAbleCommandHandler("twrp", twrp, pass_args=True, run_async=True)
 DEVICE_HANDLER = DisableAbleCommandHandler(
     "device", device, pass_args=True, run_async=True
@@ -611,3 +614,6 @@ dispatcher.add_handler(ORANGEFOX_HANDLER)
 dispatcher.add_handler(LOS_HANDLER)
 dispatcher.add_handler(GSI_HANDLER)
 dispatcher.add_handler(BOOTLEG_HANDLER)
+dispatcher.add_handler(POSP_HANDLER)
+dispatcher.add_handler(PIXYS_HANDLER)
+dispatcher.add_handler(HAVOC_HANDLER)
