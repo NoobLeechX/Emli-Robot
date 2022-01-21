@@ -17,8 +17,12 @@
 
 
 import re
+import html
+import json
 import time
+import yaml
 from datetime import datetime
+from typing import Optional, List
 
 from bs4 import BeautifulSoup
 from hurry.filesize import size as sizee
@@ -316,6 +320,164 @@ def los(update: Update, context: CallbackContext) -> str:
         )
 
 
+
+
+@typing_action
+def havoc(bot: Bot, update: Update):
+    message = update.effective_message
+    device = message.text[len('/havoc '):]
+    fetch = get(f'https://raw.githubusercontent.com/Havoc-Devices/android_vendor_OTA/pie/{device}.json')
+
+    if device == '':
+        reply_text = "Please type your device **codename** into it!\nFor example, `/havoc tissot`"
+        message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+        return
+
+    if fetch.status_code == 200:
+        usr = fetch.json()
+        response = usr['response'][0]
+        filename = response['filename']
+        url = response['url']
+        buildsize_a = response['size']
+        buildsize_b = sizee(int(buildsize_a))
+        version = response['version']
+
+        reply_text = (f"*Download:* [{filename}]({url})\n"
+                      f"*Build size:* `{buildsize_b}`\n"
+                      f"*Version:* `{version}`")
+
+        keyboard = [[InlineKeyboardButton(text="Click to Download", url=f"{url}")]]
+        message.reply_text(reply_text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+        return
+
+    elif fetch.status_code == 404:
+        reply_text = "Device not found."
+    message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+ 
+ 
+    
+@typing_action
+def pixys(bot: Bot, update: Update):
+    message = update.effective_message
+    device = message.text[len('/pixys '):]
+
+    if device == '':
+        reply_text = "Please type your device **codename** into it!\nFor example, `/pixys tissot`"
+        message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+        return
+
+    fetch = get(f'https://raw.githubusercontent.com/PixysOS-Devices/official_devices/master/{device}/build.json')
+    if fetch.status_code == 200:
+        usr = fetch.json()
+        response = usr['response'][0]
+        filename = response['filename']
+        url = response['url']
+        buildsize_a = response['size']
+        buildsize_b = sizee(int(buildsize_a))
+        romtype = response['romtype']
+        version = response['version']
+
+        reply_text = (f"*Download:* [{filename}]({url})\n"
+                      f"*Build size:* `{buildsize_b}`\n"
+                      f"*Version:* `{version}`\n"
+                      f"*Rom Type:* `{romtype}`")
+
+        keyboard = [[InlineKeyboardButton(text="Click to Download", url=f"{url}")]]
+        message.reply_text(reply_text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+        return
+
+    elif fetch.status_code == 404:
+        reply_text = "Device not found."
+    message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+
+
+
+
+@typing_action
+def pearl(bot: Bot, update: Update):
+    message = update.effective_message
+    device = message.text[len('/pearl '):]
+
+    if device == '':
+        reply_text = "Please type your device **codename** into it!\nFor example, `/pearl mido`"
+        message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+        return
+
+    fetch = get(f'https://raw.githubusercontent.com/PearlOS/OTA/master/{device}.json')
+    if fetch.status_code == 200:
+        usr = fetch.json()
+        response = usr['response'][0]
+        maintainer = response['maintainer']
+        romtype = response['romtype']
+        filename = response['filename']
+        url = response['url']
+        buildsize_a = response['size']
+        buildsize_b = sizee(int(buildsize_a))
+        version = response['version']
+        xda = response['xda']
+
+        if xda == '':
+            reply_text = (f"*Download:* [{filename}]({url})\n"
+                          f"*Build size:* `{buildsize_b}`\n"
+                          f"*Version:* `{version}`\n"
+                          f"*Maintainer:* `{maintainer}`\n"
+                          f"*ROM Type:* `{romtype}`")
+
+            keyboard = [[InlineKeyboardButton(text="Click to Download", url=f"{url}")]]
+            message.reply_text(reply_text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+            return
+
+        reply_text = (f"*Download:* [{filename}]({url})\n"
+                      f"*Build size:* `{buildsize_b}`\n"
+                      f"*Version:* `{version}`\n"
+                      f"*Maintainer:* `{maintainer}`\n"
+                      f"*ROM Type:* `{romtype}`\n"
+                      f"*XDA Thread:* [Link]({xda})")
+
+        keyboard = [[InlineKeyboardButton(text="Click to Download", url=f"{url}")]]
+        message.reply_text(reply_text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+        return
+
+    elif fetch.status_code == 404:
+        reply_text = "Device not found."
+    message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+
+
+
+
+@typing_action
+def posp(bot: Bot, update: Update):
+    message = update.effective_message
+    device = message.text[len('/posp '):]
+
+    if device == '':
+        reply_text = "Please type your device **codename** into it!\nFor example, `/posp tissot`"
+        message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+        return
+
+    fetch = get(f'https://api.potatoproject.co/checkUpdate?device={device}&type=weekly')
+    if fetch.status_code == 200 and len(fetch.json()['response']) != 0:
+        usr = fetch.json()
+        response = usr['response'][0]
+        filename = response['filename']
+        url = response['url']
+        buildsize_a = response['size']
+        buildsize_b = sizee(int(buildsize_a))
+        version = response['version']
+
+        reply_text = (f"*Download:* [{filename}]({url})\n"
+                      f"*Build size:* `{buildsize_b}`\n"
+                      f"*Version:* `{version}`")
+
+        keyboard = [[InlineKeyboardButton(text="Click to Download", url=f"{url}")]]
+        message.reply_text(reply_text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+        return
+
+    else:
+        reply_text="Device not found"
+    message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+
+
 @typing_action
 def gsi(update: Update, _: CallbackContext):
     message = update.effective_message
@@ -422,7 +584,6 @@ Get the latest Magsik releases or TWRP for your device!
 × /twrp `<codename>`:  Gets latest twrp for the android device using the codename.
 × /orangefox `<codename>`:  Gets latest orangefox recovery for the android device using the codename.
 × /los `<codename>`: Gets Latest lineage os build.
-× /gsi : get's GSI build .
 """
 
 __mod_name__ = "Android"
