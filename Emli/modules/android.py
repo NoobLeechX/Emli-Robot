@@ -22,7 +22,6 @@ import rapidjson as json
 import time
 import yaml
 from datetime import datetime
-from httpx import TimeoutException
 
 from bs4 import BeautifulSoup
 from hurry.filesize import size as sizee
