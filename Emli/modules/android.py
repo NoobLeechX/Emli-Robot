@@ -18,11 +18,11 @@
 
 import re
 import html
-import json
+import rapidjson as json
 import time
 import yaml
 from datetime import datetime
-from typing import Optional, List
+from httpx import TimeoutException
 
 from bs4 import BeautifulSoup
 from hurry.filesize import size as sizee
