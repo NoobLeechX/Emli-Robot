@@ -86,3 +86,4 @@ chromedriver
 hurry.filesize
 PyYAML
 httpx[http2]
+python-rapidjson
