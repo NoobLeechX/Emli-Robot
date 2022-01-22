@@ -85,3 +85,4 @@ cloudmersive_virus_api_client
 chromedriver
 hurry.filesize
 PyYAML
+httpx[http2]
