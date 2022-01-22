@@ -448,37 +448,55 @@ def pearl(bot: Bot, update: Update):
 
 
 @typing_action
-def posp(bot: Bot, update: Update):
+def pe(update: Update, context: CallbackContext) -> str:
     message = update.effective_message
-    device = message.text[len('/posp '):]
+    args = context.args
+    try:
+        device_ = args[0]
+    except IndexError:
+        device_ = ""
 
-    if device == '':
-        reply_text = "Please type your device **codename** into it!\nFor example, `/posp tissot`"
-        message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+    if device_ == "":
+        reply_text = "*Please Type Your Device Codename*\nExample : `/los lavender`"
+        message.reply_text(
+            reply_text,
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+        )
         return
 
-    fetch = get(f'https://api.potatoproject.co/checkUpdate?device={device}&type=weekly')
-    if fetch.status_code == 200 and len(fetch.json()['response']) != 0:
+    fetch = get(f"https://download.pixelexperience.org/ota_v5/{device}/{atype}")
+    if fetch.status_code == 200 and len(fetch.json()["response"]) != 0:
         usr = fetch.json()
-        response = usr['response'][0]
-        filename = response['filename']
-        url = response['url']
-        buildsize_a = response['size']
+        data = len(usr["response"]) - 1  # the latest rom are below
+        response = usr["response"][data]
+        filename = response["filename"]
+        url = response["url"]
+        buildsize_a = response["size"]
         buildsize_b = sizee(int(buildsize_a))
-        version = response['version']
+        version = response["version"]
 
-        reply_text = (f"*Download:* [{filename}]({url})\n"
-                      f"*Build size:* `{buildsize_b}`\n"
-                      f"*Version:* `{version}`")
-
-        keyboard = [[InlineKeyboardButton(text="Click to Download", url=f"{url}")]]
-        message.reply_text(reply_text, reply_markup=InlineKeyboardMarkup(keyboard), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+        reply_text = f"*Download :* [{filename}]({url})\n"
+        reply_text += f"*Build Size :* `{buildsize_b}`\n"
+        reply_text += f"*Version :* `{version}`\n"
+        
+        keyboard = [
+            [InlineKeyboardButton(text="Click Here To Downloads", url=f"{url}")]
+        ]
+        message.reply_text(
+            reply_text,
+            reply_markup=InlineKeyboardMarkup(keyboard),
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+        )
         return
 
     else:
-        reply_text="Device not found"
-    message.reply_text(reply_text, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
-
+        message.reply_text(
+            "`Couldn't find any results matching your query.`",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+        )
 
 @typing_action
 def gsi(update: Update, _: CallbackContext):
@@ -593,7 +611,7 @@ __mod_name__ = "Android"
 MAGISK_HANDLER = DisableAbleCommandHandler("magisk", magisk, run_async=True)
 HAVOC_HANDLER = DisableAbleCommandHandler("havoc", havoc, run_async=True)
 PIXYS_HANDLER = DisableAbleCommandHandler("pixys", pixys, run_async=True)
-POSP_HANDLER = DisableAbleCommandHandler("posp", posp, run_async=True)
+PE_HANDLER = DisableAbleCommandHandler("pe", pe, run_async=True)
 TWRP_HANDLER = DisableAbleCommandHandler("twrp", twrp, pass_args=True, run_async=True)
 DEVICE_HANDLER = DisableAbleCommandHandler(
     "device", device, pass_args=True, run_async=True
@@ -614,6 +632,6 @@ dispatcher.add_handler(ORANGEFOX_HANDLER)
 dispatcher.add_handler(LOS_HANDLER)
 dispatcher.add_handler(GSI_HANDLER)
 dispatcher.add_handler(BOOTLEG_HANDLER)
-dispatcher.add_handler(POSP_HANDLER)
+dispatcher.add_handler(PE_HANDLER)
 dispatcher.add_handler(PIXYS_HANDLER)
 dispatcher.add_handler(HAVOC_HANDLER)
