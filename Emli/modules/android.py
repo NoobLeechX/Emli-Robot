@@ -327,7 +327,7 @@ def havoc(bot: Bot, update: Update):
 
     message = update.effective_message
     device = message.text[len('/havoc '):]
-    fetch = get(f'https://download.havoc-os.com/json/{device}.json')
+    fetch = get(f'https://download.havoc-os.com/json)
 
     if device == '':
         reply_text = "Please type your device **codename** into it!\nFor example, `/havoc tissot`"
