@@ -170,64 +170,23 @@ def miui(update: Update, context: CallbackContext):
 
 
 
-def twrp(update: Update, context: CallbackContext):
-    message = update.effective_message
-    chat = update.effective_chat
-    device = message.text[len("/twrp ") :]
-    btn = ""
-
-    if device:
-        link = get(f"https://eu.dl.twrp.me/{device}")
-
-        if link.status_code == 404:
-            msg = f"TWRP is not avaliable for {device}"
-        else:
-            page = BeautifulSoup(link.content, "lxml")
-            download = page.find("table").find("tr").find("a")
-            dl_link = f"https://eu.dl.twrp.me{download['href']}"
-            dl_file = download.text
-            size = page.find("span", {"class": "filesize"}).text
-            date = page.find("em").text.strip()
-            msg = f"*Latest TWRP for the {device}*\n\n"
-            msg += f"• Size: `{size}`\n"
-            msg += f"• Date: `{date}`\n"
-            msg += f"• File: `{dl_file}`\n\n"
-            btn = [[InlineKeyboardButton(text=f"Download", url = dl_link)]]
-    else:
-        msg = 'Give me something to fetch, like:\n`/twrp a3y17lte`'
-
-    delmsg = message.reply_text(
-        text = msg,
-        reply_markup = InlineKeyboardMarkup(btn),
-        parse_mode = ParseMode.MARKDOWN,
-        disable_web_page_preview = True,
-    )
-
-    cleartime = get_clearcmd(chat.id, "twrp")
-
-    if cleartime:
-        context.dispatcher.run_async(delete, delmsg, cleartime.time)
 
 
 
 
-MAGISK_HANDLER = CommandHandler(["magisk", "root", "su"], magisk, run_async=True)
-ORANGEFOX_HANDLER = CommandHandler("orangefox", orangefox, run_async=True)
-TWRP_HANDLER = CommandHandler("twrp", twrp, run_async=True)
 GETFW_HANDLER = CommandHandler("getfw", getfw, run_async=True)
 CHECKFW_HANDLER = CommandHandler("checkfw", checkfw, run_async=True)
-PHH_HANDLER = CommandHandler("phh", phh, run_async=True)
 MIUI_HANDLER = CommandHandler("miui", miui, run_async=True)
 
 
-dispatcher.add_handler(MAGISK_HANDLER)
-dispatcher.add_handler(ORANGEFOX_HANDLER)
-dispatcher.add_handler(TWRP_HANDLER)
+
+
+
 dispatcher.add_handler(GETFW_HANDLER)
 dispatcher.add_handler(CHECKFW_HANDLER)
-dispatcher.add_handler(PHH_HANDLER)
+
 dispatcher.add_handler(MIUI_HANDLER)
 
 __mod_name__ = "Android"
-__command_list__ = ["magisk", "root", "su", "orangefox", "twrp", "checkfw", "getfw", "phh", "miui"]
-__handlers__ = [MAGISK_HANDLER, ORANGEFOX_HANDLER, TWRP_HANDLER, GETFW_HANDLER, CHECKFW_HANDLER, PHH_HANDLER, MIUI_HANDLER]
+__command_list__ = [ "checkfw", "getfw", "miui"]
+__handlers__ = [GETFW_HANDLER, CHECKFW_HANDLER,  MIUI_HANDLER]
