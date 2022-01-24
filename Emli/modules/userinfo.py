@@ -31,7 +31,7 @@ from Emli import (
     StartTime,
     SUPPORT_CHAT,
 )
-from Emli.__main__.import STATS, TOKEN, USER_INFO
+from Emli.__main__ import STATS, TOKEN, USER_INFO
 from Emli.modules.sql import SESSION
 import Emli.modules.sql.userinfo_sql as sql
 from Emli.modules.disable import DisableAbleCommandHandler
