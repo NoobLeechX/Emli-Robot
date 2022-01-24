@@ -187,6 +187,6 @@ dispatcher.add_handler(CHECKFW_HANDLER)
 
 dispatcher.add_handler(MIUI_HANDLER)
 
-__mod_name__ = "Android"
+__mod_name__ = "software"
 __command_list__ = [ "checkfw", "getfw", "miui"]
 __handlers__ = [GETFW_HANDLER, CHECKFW_HANDLER,  MIUI_HANDLER]
