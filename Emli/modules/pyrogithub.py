@@ -4,7 +4,7 @@ from Emli import pbot, BOT_USERNAME
 from Emli.utils.errors import capture_err
 
 
-__mod_name__ = "Github"
+__mod_name__ = "pyrogithub"
 
 
 @pbot.on_message(filters.command(["github", "git", f"git@{BOT_USERNAME}"]))
