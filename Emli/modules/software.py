@@ -221,7 +221,7 @@ def realmeui(update: Update, context: CallbackContext):
 GETFW_HANDLER = CommandHandler("getfw", getfw, run_async=True)
 CHECKFW_HANDLER = CommandHandler("checkfw", checkfw, run_async=True)
 MIUI_HANDLER = CommandHandler("miui", miui, run_async=True)
-REALMEUI_HANDLER  = CommandHandler("realmeui",  run_async=True)
+REALMEUI_HANDLER  = CommandHandler("realmeui", realmeui, run_async=True)
 
 
 
