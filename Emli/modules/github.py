@@ -5,7 +5,7 @@ import Emli.modules.helper_funcs.git_api as api
 import Emli.modules.sql.github_sql as sql
 
 from Emli.modules.sql.clear_cmd_sql import get_clearcmd
-from Emli import dispatcher, OWNER_ID, EVENT_LOGS, SUDO_USERS, SUPPORT_USERS
+from Emli import dispatcher, OWNER_ID, EVENT_LOGS
 from Emli.modules.helper_funcs.filters import CustomFilters
 from Emli.modules.helper_funcs.chat_status import user_admin
 from Emli.modules.helper_funcs.misc import delete
