@@ -1,6 +1,6 @@
 # Magisk Module- Module from AstrakoBot
 # Inspired from RaphaelGang's android.py
-# By DAvinash97
+# By DAvinash97 & shado-hackers
 
 
 from datetime import datetime
@@ -17,33 +17,6 @@ from Emli.modules.sql.clear_cmd_sql import get_clearcmd
 from Emli.modules.github import getphh
 from Emli.modules.helper_funcs.misc import delete
 
-
-def magisk(update: Update, context: CallbackContext):
-    message = update.effective_message
-    chat = update.effective_chat
-    link = "https://raw.githubusercontent.com/topjohnwu/magisk-files/master/"
-    magisk_dict = {
-        "*Stable*": "stable.json",
-        "\n" "*Canary*": "canary.json",
-    }.items()
-    msg = "*Latest Magisk Releases:*\n\n"
-    for magisk_type, release_url in magisk_dict:
-        data = get(link + release_url).json()
-        msg += (
-            f"{magisk_type}:\n"
-            f'• Manager - [{data["magisk"]["version"]} ({data["magisk"]["versionCode"]})]({data["magisk"]["link"]}) \n'
-        )
-
-    delmsg = message.reply_text(
-        text = msg,
-        parse_mode = ParseMode.MARKDOWN,
-        disable_web_page_preview = True,
-    )
-
-    cleartime = get_clearcmd(chat.id, "magisk")
-
-    if cleartime:
-        context.dispatcher.run_async(delete, delmsg, cleartime.time)
 
 
 def checkfw(update: Update, context: CallbackContext):
@@ -149,23 +122,6 @@ def getfw(update: Update, context: CallbackContext):
         context.dispatcher.run_async(delete, delmsg, cleartime.time)
 
 
-def phh(update: Update, context: CallbackContext):
-    args = context.args
-    message = update.effective_message
-    chat = update.effective_chat
-    index = int(args[0]) if len(args) > 0 and args[0].isdigit() else 0
-    text = getphh(index)
-
-    delmsg = message.reply_text(
-        text,
-        parse_mode = ParseMode.HTML,
-        disable_web_page_preview = True,
-    )
-
-    cleartime = get_clearcmd(chat.id, "phh")
-
-    if cleartime:
-        context.dispatcher.run_async(delete, delmsg, cleartime.time)
 
 
 def miui(update: Update, context: CallbackContext):
@@ -213,64 +169,6 @@ def miui(update: Update, context: CallbackContext):
         context.dispatcher.run_async(delete, delmsg, cleartime.time)
 
 
-def orangefox(update: Update, context: CallbackContext):
-    message = update.effective_message
-    chat = update.effective_chat
-    device = message.text[len("/orangefox ") :]
-    btn = ""
-
-    if device:
-        link = get(f"https://api.orangefox.download/v3/releases/?codename={device}&sort=date_desc&limit=1")
-
-        if link.status_code == 404:
-            msg = f"OrangeFox recovery is not avaliable for {device}"
-        else:
-            page = loads(link.content)
-            file_id = page["data"][0]["_id"]
-            link = get(f"https://api.orangefox.download/v3/devices/get?codename={device}")
-            page = loads(link.content)
-            oem = page["oem_name"]
-            model = page["model_name"]
-            full_name = page["full_name"]
-            maintainer = page["maintainer"]["username"]
-            link = get(f"https://api.orangefox.download/v3/releases/get?_id={file_id}")
-            page = loads(link.content)
-            dl_file = page["filename"]
-            build_type = page["type"]
-            version = page["version"]
-            changelog = page["changelog"][0]
-            size = str(round(float(page["size"]) / 1024 / 1024, 1)) + "MB"
-            dl_link = page["mirrors"]["US"]
-            date = datetime.fromtimestamp(page["date"])
-            md5 = page["md5"]
-            msg = f"*Latest OrangeFox Recovery for the {full_name}*\n\n"
-            msg += f"• Manufacturer: `{oem}`\n"
-            msg += f"• Model: `{model}`\n"
-            msg += f"• Codename: `{device}`\n"
-            msg += f"• Build type: `{build_type}`\n"
-            msg += f"• Maintainer: `{maintainer}`\n"
-            msg += f"• Version: `{version}`\n"
-            msg += f"• Changelog: `{changelog}`\n"
-            msg += f"• Size: `{size}`\n"
-            msg += f"• Date: `{date}`\n"
-            msg += f"• File: `{dl_file}`\n"
-            msg += f"• MD5: `{md5}`\n"
-            btn = [[InlineKeyboardButton(text=f"Download", url = dl_link)]]
-    else:
-        msg = 'Give me something to fetch, like:\n`/orangefox a3y17lte`'
-
-    delmsg = message.reply_text(
-        text = msg,
-        reply_markup = InlineKeyboardMarkup(btn),
-        parse_mode = ParseMode.MARKDOWN,
-        disable_web_page_preview = True,
-    )
-
-    cleartime = get_clearcmd(chat.id, "orangefox")
-
-    if cleartime:
-        context.dispatcher.run_async(delete, delmsg, cleartime.time)
-
 
 def twrp(update: Update, context: CallbackContext):
     message = update.effective_message
@@ -311,22 +209,7 @@ def twrp(update: Update, context: CallbackContext):
         context.dispatcher.run_async(delete, delmsg, cleartime.time)
 
 
-__help__ = """
-*Available commands:*\n
-*Magisk:* 
-• `/magisk`, `/su`, `/root`: fetches latest magisk\n
-*OrangeFox Recovery Project:* 
-• `/orangefox` `<devicecodename>`: fetches lastest OrangeFox Recovery available for a given device codename\n
-*TWRP:* 
-• `/twrp <devicecodename>`: fetches lastest TWRP available for a given device codename\n
-*MIUI:*
-• `/miui <devicecodename>`- fetches latest firmware info for a given device codename\n
-*Phh:* 
-• `/phh`: get lastest phh builds from github\n
-*Samsung:*
-• `/checkfw <model> <csc>` - Samsung only - shows the latest firmware info for the given device, taken from samsung servers
-• `/getfw <model> <csc>` - Samsung only - gets firmware download links from samfrew, sammobile and sfirmwares for the given device
-"""
+
 
 MAGISK_HANDLER = CommandHandler(["magisk", "root", "su"], magisk, run_async=True)
 ORANGEFOX_HANDLER = CommandHandler("orangefox", orangefox, run_async=True)
