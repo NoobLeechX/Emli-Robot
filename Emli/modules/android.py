@@ -599,6 +599,10 @@ Get the latest Magsik releases or TWRP for your device!
 
 *Android related commands:*
 × /magisk: Gets the latest magisk release for Stable/Beta/Canary.
+× /miui `<codename>`: Gets MIUI latest updates links
+*Samsung:*
+• /checkfw <model> <csc> - Samsung only - shows the latest firmware info for the given device, taken from samsung servers
+• /getfw <model> <csc> - Samsung only - gets firmware download links from samfrew, sammobile and sfirmwares for the given device
 × /device `<codename>`: Gets android device basic info from its codename.
 × /twrp `<codename>`:  Gets latest twrp for the android device using the codename.
 × /orangefox `<codename>`:  Gets latest orangefox recovery for the android device using the codename.
