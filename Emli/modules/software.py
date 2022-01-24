@@ -167,7 +167,7 @@ def miui(update: Update, context: CallbackContext):
 
     if cleartime:
         context.dispatcher.run_async(delete, delmsg, cleartime.time)
-
+#Don't kang it. Create by shado_hackers in telegram 
 
 def realmeui(update: Update, context: CallbackContext):
     message = update.effective_message
