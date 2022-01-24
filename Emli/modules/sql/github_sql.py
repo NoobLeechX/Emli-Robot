@@ -3,7 +3,7 @@ import threading
 from sqlalchemy import Column, String, UnicodeText, func, distinct, Integer
 
 from Emli.modules.helper_funcs.msg_types import Types
-from AstrakoBot.modules.sql import SESSION, BASE
+from Emli.modules.sql import SESSION, BASE
 
 
 class GitHub(BASE):
