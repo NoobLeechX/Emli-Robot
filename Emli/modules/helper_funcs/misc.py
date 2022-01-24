@@ -131,3 +131,12 @@ def build_keyboard_parser(bot, chat_id, buttons):
 
 def is_module_loaded(name):
     return name not in NO_LOAD
+
+
+
+def delete(delmsg, timer):
+    sleep(timer)
+    try:
+        delmsg.delete()
+    except:
+        return
