@@ -176,7 +176,7 @@ def realmeui(update: Update, context: CallbackContext):
     markup = []
 
     if device:
-        link = "https://raw.githubusercontent.com/XiaomiFirmwareUpdater/miui-updates-tracker/master/data/latest.yml"
+        link = "https://raw.githubusercontent.com/RealmeUpdater/realme-updates-tracker/master/data/latest.yml"
         yaml_data = load(get(link).content, Loader=Loader)
         data = [i for i in yaml_data if device in i['codename']]
 
