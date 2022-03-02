@@ -1,6 +1,6 @@
 from Emli import pbot 
 import random
-from Emli.function.dbfun import (
+from Emli.ex_plugins.dbfunctions import (
     update_karma,
     get_karma,
     get_karmas,
