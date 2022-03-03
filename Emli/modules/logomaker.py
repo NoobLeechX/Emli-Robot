@@ -6,7 +6,7 @@ from Emli.events import register
 from Emli import OWNER_ID, telethn as tbot
 
 
-@register(pattern="^/logo ?(.*)")
+@register(pattern="^/nlogo ?(.*)")
 async def lego(event):
  quew = event.pattern_match.group(1)
  if event.sender_id != OWNER_ID and not quew:
@@ -77,6 +77,6 @@ file_helpo = file_help.replace("_", " ")
 
 
 __help__ = """
- ❍ /logo text :  Create your logo with your name
+ ❍ /nlogo text :  Create your logo with your name
  """
 __mod_name__ = "Logo"
