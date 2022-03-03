@@ -92,6 +92,9 @@ __New couple of the day may be chosen at 12AM {tomorrow}__"""
     except Exception as e:
         print(e)
         await message.reply_text(e)
-
-Here is the help for couple:
+__help__ = """
+ ❍ Here is the help for couple:
 /couple - To Choose Couple Of The Day
+ """
+__mod_name__ = "couple"
+
