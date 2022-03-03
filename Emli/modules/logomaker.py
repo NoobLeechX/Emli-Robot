@@ -15,7 +15,7 @@ async def lego(event):
  await event.reply('Creating your logo...wait!')
  try:
     text = event.pattern_match.group(1)
-    img = Image.open('./Cutiepii_Robot/utils/Logo/blackbg.jpg')
+    img = Image.open('./Emli/utils/Logo/blackbg.jpg')
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 500
