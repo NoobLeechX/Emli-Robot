@@ -488,7 +488,7 @@ def Source_about_callback(update, context):
                     InlineKeyboardButton(text="𝙾𝚝𝚑𝚎𝚛 𝚋𝚘𝚝", url="https://t.me/OMG_info/3990"),
                  ],
                  [
-                    InlineKeyboardButton(text="𝙱𝚄𝙸𝙻𝙳 𝚂𝚃𝙰𝚃𝚄𝚂 V1", url="https://t.me/Emili_CTbot"),
+                    InlineKeyboardButton(text="𝙱𝚄𝙸𝙻𝙳 𝚂𝚃𝙰𝚃𝚄𝚂 V2", url="https://t.me/EMLIXbot"),
                     InlineKeyboardButton(text="Source", url="tg://need_update_for_some_feature"),
                  ],
                  [
@@ -496,7 +496,7 @@ def Source_about_callback(update, context):
                     InlineKeyboardButton(text="𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴", url="https://cloud.mongodb.com/"),
                  ],
                  [
-                    InlineKeyboardButton(text="Follow meh", url="https://mobile.twitter.com/Lusifer_noob"),
+                    InlineKeyboardButton(text="Follow meh", url="https://mobile.twitter.com/Shado_hackers"),
                     InlineKeyboardButton(text="𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴", url="https://www.python.org/"),
                  ],
                  [
