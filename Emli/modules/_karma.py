@@ -202,3 +202,9 @@ async def captcha_state(_, message):
         await message.reply_text("Disabled karma system.")
     else:
         await message.reply_text(usage)
+__help__ = """
+ ❍ /karma [ON|OFF]:  **Usage:**\n/karma [ON|OFF]
+ ♦/karmastat : check karma status
+
+ """
+__mod_name__ = "karma"
