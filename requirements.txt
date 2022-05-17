@@ -71,12 +71,12 @@ nudepy
 nekos.py
 motor
 gpytranslate
-fontTools
-opencv-python-headless
+fonttools==4.33.3
+opencv-python-headless==4.5.5.64
 odmantic
 tzlocal
 pendulum
-fuzzysearch
+fuzzysearch==0.7.3
 img2pdf
 multicolorcaptcha
 gitpython
@@ -87,3 +87,4 @@ PyYAML
 humanize
 python-rapidjson
 covid
+numpy
