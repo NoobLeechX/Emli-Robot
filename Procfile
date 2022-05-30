@@ -1,1 +1,1 @@
-web: python3 -m Emli
+worker: python3 -m Emli
