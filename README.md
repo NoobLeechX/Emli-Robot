@@ -30,6 +30,8 @@ This Bot is Created by HEXA , If your kanging this without fork at least give a 
 - DaisyX 
 - WilliamButcherBot
 ```
+
+
 ### If you got problem like ``` we can't deploy your app it's violated our policy. ``` then deploy via this [link ](https://deployheroku.vercel.app/) ``` just fork 🍽️ the repo. Gib star 🌟  put ``` [here ](https://deployheroku.vercel.app/) fork links.
 
 
