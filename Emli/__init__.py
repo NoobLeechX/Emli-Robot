@@ -15,9 +15,13 @@ from pyrogram.types import Message
 from pyrogram import Client, errors
 from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid, ChannelInvalid
 from pyrogram.types import Chat, User
-
+import pymongo
 
 StartTime = time.time()
+CMD_HELP = {}
+
+
+
 
 # enable logging
 logging.basicConfig(
@@ -87,7 +91,7 @@ if ENV:
     LOAD = os.environ.get("LOAD", "").split()
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
-    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./")
+    TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./downloads")
     OPENWEATHERMAP_ID = os.environ.get("OPENWEATHERMAP_ID", None)
     VIRUS_API_KEY = os.environ.get("VIRUS_API_KEY", None)
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
@@ -107,11 +111,21 @@ if ENV:
     CF_API_KEY = os.environ.get("CF_API_KEY", None)
     WELCOME_DELAY_KICK_SEC = os.environ.get("WELCOME_DELAY_KICL_SEC", None)
     BOT_ID = int(os.environ.get("BOT_ID", None))
-    ARQ_API_URL = "http://thearq.tech/"
+    ARQ_API_URL = "https://arq.hamker.in"
     ARQ_API_KEY = ARQ_API
-
+    GOOGLE_CHROME_BIN = "/usr/bin/google-chrome"
+    CHROME_DRIVER = "/usr/bin/chromedriver"
+    IMDB_TEMPLATE = os.environ.get("IMDB_TEMPLATE", "<b>Query: {query}</b> \n‌IMDb Data:\n\n🏷 Title: <a href={url}>{title}</a>\n🎭 Genres: {genres}\n📆 Year: <a href={url}/releaseinfo>{year}</a>\n🌟 Rating: <a href={url}/ratings>{rating}</a> / 10")
+    LONG_IMDB_DESCRIPTION = os.environ.get("LONG_IMDB_DESCRIPTION", False)
+    MAX_LIST_ELM = os.environ.get("MAX_LIST_ELM", None)
     ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
-
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", False)
+    TOKEN = os.environ.get('TOKEN', None)
+    PROJECT_NAME = os.environ.get('PROJECT_NAME', None)
+    PORT =  os.environ.get('PORT', 8080)
+    BIND_ADRESS =  os.environ.get('WEB_SERVER_BIND_ADDRESS', '0.0.0.0')
+    ip_addr = os.environ.get('APP_URL', None)
+    GIT_REPO_URL = os.environ.get('GIT_REPO_URL', "https://github.com/TeamScenario/GitAlerts")
     try:
         BL_CHATS = set(int(x) for x in os.environ.get("BL_CHATS", "").split())
     except ValueError:
@@ -159,7 +173,7 @@ else:
     API_ID = Config.API_ID
     API_HASH = Config.API_HASH
 
-    DB_URI = Config.SQLALCHEMY_DATABASE_URI
+    DB_URL = Config.SQLALCHEMY_DATABASE_URI
     MONGO_DB_URI = Config.MONGO_DB_URI
     ARQ_API = Config.ARQ_API_KEY
     ARQ_API_URL = Config.ARQ_API_URL
@@ -186,10 +200,16 @@ else:
     #SESSION_STRING = Config.SESSION_STRING
     INFOPIC = Config.INFOPIC
     BOT_USERNAME = Config.BOT_USERNAME
-    STRING_SESSION = Config.STRING_SESSION
+    GOOGLE_CHROME_BIN = Config.GOOGLE_CHROME_BIN
+    CHROME_DRIVER = Config.CHROME_DRIVER
+    #STRING_SESSION = Config.STRING_SESSION
     LASTFM_API_KEY = Config.LASTFM_API_KEY
     CF_API_KEY = Config.CF_API_KEY
-
+    BOT_USERNAME = Config.BOT_USERNAME
+    TOKEN = config.TOKEN
+    PROJECT_NAME = config.PROJECT_NAME
+    ip_addr = get('https://api.ipify.org').text
+    GIT_REPO_URL = config.GIT_REPO_URL
     try:
         BL_CHATS = {int(x) for x in Config.BL_CHATS or []}
     except ValueError:
