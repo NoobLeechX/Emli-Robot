@@ -6,15 +6,15 @@
          "advance",
          "group",
          "manager",
-         "naorobot"
+         "Emli"
       ],
     
-   "logo":    "https://telegra.ph/file/e8baa0a32d528b548aa45.jpg",  
-   "repository": "https://github.com/NoobLeechX/EMLI",
+   "logo":    "https://te.legra.ph/file/074ef8d210745e3380baf.jpg",  
+   "repository": "https://github.com/Leechxnoob/EMLIXbot",
    "addons": [
           {
          "options": {
-            "version": "12"
+            "version": "13"
          },
          "plan": "heroku-postgresql"
       }
@@ -43,17 +43,11 @@
          "required": true,
          "value": ""
       },    
-      "SQLALCHEMY_DATABASE_URI": {
-         "description": "Your postgres sql db, empty this field if you dont have one.",
-         "required": false,
-         "value": "sqldbtype://username:pw@hostname:port/db_name"
-      },      
       "OWNER_ID": {
          "description": "Your user ID as an integer.",
          "required": true,
          "value": "828959161"
      },
-
       "HEROKU_API_KEY": {
         "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
         "value": ""
@@ -64,7 +58,7 @@
       },
       "BOT_USERNAME": {
          "description": "username of your bot without the @",
-         "value": ""
+         "value": "Emili_CTbot"
       },
 
       "BOT_ID": {
@@ -79,7 +73,7 @@
       "SUPPORT_CHAT": {
          "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to masha support than consider you made an enemy.",
          "required": true,
-         "value": ""
+         "value": "EMLILOGS"
       },
       "MONGO_DB_URI": {
          "description": "Required for database connections.",
@@ -116,7 +110,7 @@
      }, 
 
       "OPENWEATHERMAP_ID": {
-        "description": "Get your own APPID from https://api.openweathermap.org/data/2.5/weather",
+        "description": "Get your own API from https://api.openweathermap.org/data/2.5/weather",
         "value": "",
         "required": false
       },
@@ -126,12 +120,17 @@
          "required": false,
          "value": ""
      },
-        "ARQ_API": {
+      "ERROR_LOG": {
+         "description": "ID of log for show error.",
+         "required": false,
+         "value": ""
+     },
+        "ARQ_API_KEY": {
             "description": "Get this from @ARQRobot.",
             "required": true
         },
 
-      "sw_api": {
+      "SPAMWATCH_API": {
          "description": "Spamwatch API Token, Get one from @SpamWatchBot.",
          "required": false,
          "value": ""
@@ -196,20 +195,11 @@
       "DONATION_LINK": {
          "description": "Optional: link where you would like to receive donations. If you are a noob, better leave it linking to paul",
          "required": false,
-         "value": "https://www.paypal.me/yourlink"
+         "value": "https://www.paypal.me/PaulSonOfLars"
       },
       "DEL_CMDS": {
          "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
          "value": "True"
-      },
-        "ARQ_API": {
-            "description": "Get this from @ARQRobot.",
-            "required": true
-        },
-      "BAN_STICKER": {
-         "description": "ID of the sticker you want to use when banning people.",
-         "required": false,
-         "value": ""
       },
       "WALL_API": {
          "description": "Required for wallpaper. Get your's from https://wall.alphacoders.com/",
